@@ -1,8 +1,12 @@
 # 辑语 RemTene
 
+[English](./README_EN.md)
+
 > 用嘴加速手指输入；在不改变原意的前提下，把语音转成可直接使用的干净文字。
 
 「辑语」是源码可用、跨应用、系统级的语音输入工具。音频在本地完成 ASR（自动语音识别）；用户可以选择原始转录，或将文字发送到自己配置的 OpenAI-Compatible（OpenAI 兼容）服务做忠实整理与结构优化，最后把结果交付到原来的桌面输入位置。
+
+> 不同于闭源软件字数限制和内购购买，您可以在此软件选择您自己的音频识别模型，以及自由的使用第三方APIkey来自由使用。数据流向完全由您自己掌握。
 
 本项目采用 [PolyForm Noncommercial License 1.0.0](./LICENSE)，不是 OSI 批准的开源许可证。非商业使用必须遵守正式许可条款；商业使用需要另行取得书面授权，参见[商业授权说明](./COMMERCIAL_LICENSE.md)。
 
@@ -26,13 +30,29 @@
 
 ## 安装与模型状态
 
-目前没有可供终端用户安装的正式 Release。源码仓库也不包含默认模型权重；本机已有模型与开发构建不能代表干净安装后开箱即用。
+macos版本的安装包文件正在合规化签名和认证......
 
-[`models/README.md`](./models/README.md) 记录计划使用的模型来源、固定 Revision、哈希和许可证。仓库只保留法律与来源材料，不分发权重。
+### 语音识别模型目前支持：
+-  Qwen ASR 0.6B
+-  Whisper large v3 q5
+
+> 模型下载地址：
+
+``
+https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main
+``
+
+
+[`models/README.md`](./models/README.md) 记录计划使用的模型来源、固定 Revision、哈希和许可证。本仓库只保留法律与来源材料，模型前往huggingface下载。
+
+## 用户使用方式
+
+当您成功的安装软件后，您会在模型界面看到目前支持的模型。然后您可以点击页面中的<u>**查看目录**</u>，然后从 <u>[https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main](https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main)</u> 下载 所需模型，到此目录。然后点击重新检查，即可识别正常使用。
+
 
 ## 开发环境与安装
 
-以下流程面向需要阅读、修改或自行编译源码的开发者，不是普通终端用户的安装流程。除非特别说明，所有命令都从仓库根目录执行。
+> 以下流程面向需要阅读、修改或自行编译源码的开发者，不是普通终端用户的安装流程。除非特别说明，所有命令都从仓库根目录执行。
 
 ### 平台与工具链
 
@@ -52,7 +72,9 @@ macOS 桌面开发至少需要 Apple Command Line Tools：
 xcode-select --install
 ```
 
-Windows 按 [Tauri 2 系统前置要求](https://v2.tauri.app/start/prerequisites/)安装 Microsoft C++ Build Tools（选择 `Desktop development with C++`）和 Microsoft Edge WebView2。Windows 当前只能用于共享代码与编译检查，录音、ASR Runtime、目标识别和交付仍包含占位实现，不能视为可用产品。Linux 尚无产品支持与验证证据。
+~~Windows 按 [Tauri 2 系统前置要求](https://v2.tauri.app/start/prerequisites/)安装 Microsoft C++ Build Tools（选择 `Desktop development with C++`）和 Microsoft Edge WebView2。Windows 当前只能用于共享代码与编译检查，录音、ASR Runtime、目标识别和交付仍包含占位实现，不能视为可用产品。Linux 尚无产品支持与验证证据。~~
+
+> Windwos 目前正在开发中...耐心等待。
 
 ### 获取源码与安装依赖
 
