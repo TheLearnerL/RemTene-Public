@@ -32,7 +32,7 @@ rusqlite = { version = "0.40.1", default-features = false, features = ["bundled"
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.151"
 rustix = { version = "1.0.7", features = ["fs"] }
-sha2 = "0.10.8"
+sha2 = "0.11.0"
 tauri = { version = "2.11.5", features = ["image-png", "tray-icon"] }
 tauri-build = "2.6.3"
 tauri-plugin-autostart = "2.5.1"
