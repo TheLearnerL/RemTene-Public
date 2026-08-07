@@ -24,7 +24,7 @@ remtene-contracts = { path = "crates/remtene-contracts" }
 remtene-domain = { path = "crates/remtene-domain" }
 remtene-platform = { path = "crates/remtene-platform" }
 getrandom = "0.4.3"
-qwen-asr = "=0.9.0"
+qwen-asr = "=0.11.0"
 hound = "=3.5.1"
 plist = "1.10.0"
 reqwest = { version = "=0.13.4", default-features = false, features = ["json", "rustls"] }

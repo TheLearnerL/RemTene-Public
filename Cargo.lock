@@ -3212,9 +3212,9 @@ dependencies = [
 
 [[package]]
 name = "qwen-asr"
-version = "0.9.0"
+version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e14e4df24c9f37fdcb45e4ffb50fb3851ecad3ba27bde2d83c5bb4001e61696a"
+checksum = "6f2d649ea1585c574469353ac89a891d53548c7b9422034f8e1b14743632606f"
 dependencies = [
  "libc",
 ]
