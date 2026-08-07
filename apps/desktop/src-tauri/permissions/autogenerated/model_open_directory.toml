@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-model-open-directory"
+description = "Enables the model_open_directory command without any pre-configured scope."
+commands.allow = ["model_open_directory"]
+
+[[permission]]
+identifier = "deny-model-open-directory"
+description = "Denies the model_open_directory command without any pre-configured scope."
+commands.deny = ["model_open_directory"]

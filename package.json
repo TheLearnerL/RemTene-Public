@@ -1,0 +1,22 @@
+{
+  "name": "remtene-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "dev": "pnpm --filter @remtene/desktop tauri dev",
+    "build": "pnpm --filter @remtene/desktop tauri build",
+    "build:macos-sidecar": "REMTENE_MACOS_BUILD_FLAVOR=formal sh scripts/build-macos-sidecar-bundle.sh",
+    "build:macos-helper-dev": "REMTENE_MACOS_BUILD_FLAVOR=adhoc REMTENE_ALLOW_ADHOC_MACOS_HELPER=1 sh scripts/build-macos-sidecar-bundle.sh",
+    "check": "pnpm check:web && pnpm check:rust",
+    "check:web": "pnpm --filter @remtene/desktop typecheck",
+    "check:rust": "cargo check --workspace",
+    "lint": "pnpm lint:web && pnpm lint:rust",
+    "lint:web": "pnpm --filter @remtene/desktop lint",
+    "lint:rust": "cargo clippy --workspace --all-targets -- -D warnings",
+    "test": "cargo test --workspace && pnpm test:contracts",
+    "test:contracts": "pnpm --filter @remtene/desktop test:contracts",
+    "format": "cargo fmt --all"
+  }
+}

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-settings-set-history-enabled"
+description = "Enables the settings_set_history_enabled command without any pre-configured scope."
+commands.allow = ["settings_set_history_enabled"]
+
+[[permission]]
+identifier = "deny-settings-set-history-enabled"
+description = "Denies the settings_set_history_enabled command without any pre-configured scope."
+commands.deny = ["settings_set_history_enabled"]

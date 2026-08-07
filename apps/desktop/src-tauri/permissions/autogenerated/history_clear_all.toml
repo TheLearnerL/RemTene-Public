@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-history-clear-all"
+description = "Enables the history_clear_all command without any pre-configured scope."
+commands.allow = ["history_clear_all"]
+
+[[permission]]
+identifier = "deny-history-clear-all"
+description = "Denies the history_clear_all command without any pre-configured scope."
+commands.deny = ["history_clear_all"]

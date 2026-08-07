@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-diagnostics-open-directory"
+description = "Enables the diagnostics_open_directory command without any pre-configured scope."
+commands.allow = ["diagnostics_open_directory"]
+
+[[permission]]
+identifier = "deny-diagnostics-open-directory"
+description = "Denies the diagnostics_open_directory command without any pre-configured scope."
+commands.deny = ["diagnostics_open_directory"]

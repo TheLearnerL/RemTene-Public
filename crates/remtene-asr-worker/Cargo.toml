@@ -1,0 +1,32 @@
+[package]
+name = "remtene-asr-worker"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[features]
+default = []
+whisper-runtime = ["dep:hound", "dep:whisper-rs"]
+
+[dependencies]
+remtene-contracts.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+time.workspace = true
+uuid.workspace = true
+
+[target.'cfg(target_os = "macos")'.dependencies]
+hound = { workspace = true, optional = true }
+objc2-foundation.workspace = true
+qwen-asr.workspace = true
+whisper-rs = { workspace = true, optional = true }
+
+[dev-dependencies]
+remtene-adapters.workspace = true
+remtene-application.workspace = true
+remtene-domain.workspace = true
+remtene-platform.workspace = true
+
+[lints]
+workspace = true

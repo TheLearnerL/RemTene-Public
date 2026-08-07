@@ -1,0 +1,65 @@
+name: Engineering baseline
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  desktop-baseline:
+    name: ${{ matrix.os }} baseline
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-14
+          - windows-2022
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24.15.0
+          package-manager-cache: false
+
+      - name: Install pnpm
+        run: npm install --global pnpm@11.9.0
+
+      - name: Install Rust toolchain
+        run: rustup toolchain install 1.97.1 --profile minimal --component rustfmt,clippy
+
+      - name: Restore locked JavaScript dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check Rust formatting
+        run: cargo +1.97.1 fmt --all -- --check
+
+      - name: Run Clippy
+        run: cargo +1.97.1 clippy --workspace --all-targets -- -D warnings
+
+      - name: Check macOS Whisper Worker feature
+        if: runner.os == 'macOS'
+        run: cargo +1.97.1 check -p remtene-asr-worker --all-targets --features whisper-runtime
+
+      - name: Run Rust tests
+        run: cargo +1.97.1 test --workspace
+
+      - name: Check TypeScript
+        run: pnpm check:web
+
+      - name: Run ESLint
+        run: pnpm lint:web
+
+      - name: Verify cross-boundary contract fixtures
+        run: pnpm test:contracts
+
+      - name: Build unsigned Tauri desktop binary
+        run: pnpm --filter @remtene/desktop tauri build --no-bundle

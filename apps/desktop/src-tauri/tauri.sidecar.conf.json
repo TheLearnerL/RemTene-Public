@@ -1,0 +1,10 @@
+{
+  "bundle": {
+    "macOS": {
+      "entitlements": "binaries/macos/main.entitlements.plist",
+      "files": {
+        "Helpers/RemTeneASRWorker.app": "binaries/RemTeneASRWorker.app"
+      }
+    }
+  }
+}

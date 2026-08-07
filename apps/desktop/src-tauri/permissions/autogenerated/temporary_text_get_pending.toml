@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-temporary-text-get-pending"
+description = "Enables the temporary_text_get_pending command without any pre-configured scope."
+commands.allow = ["temporary_text_get_pending"]
+
+[[permission]]
+identifier = "deny-temporary-text-get-pending"
+description = "Denies the temporary_text_get_pending command without any pre-configured scope."
+commands.deny = ["temporary_text_get_pending"]

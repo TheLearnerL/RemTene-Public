@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-temporary-text-copy-all"
+description = "Enables the temporary_text_copy_all command without any pre-configured scope."
+commands.allow = ["temporary_text_copy_all"]
+
+[[permission]]
+identifier = "deny-temporary-text-copy-all"
+description = "Denies the temporary_text_copy_all command without any pre-configured scope."
+commands.deny = ["temporary_text_copy_all"]

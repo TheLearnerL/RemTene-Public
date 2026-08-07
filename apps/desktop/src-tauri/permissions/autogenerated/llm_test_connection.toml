@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-llm-test-connection"
+description = "Enables the llm_test_connection command without any pre-configured scope."
+commands.allow = ["llm_test_connection"]
+
+[[permission]]
+identifier = "deny-llm-test-connection"
+description = "Denies the llm_test_connection command without any pre-configured scope."
+commands.deny = ["llm_test_connection"]

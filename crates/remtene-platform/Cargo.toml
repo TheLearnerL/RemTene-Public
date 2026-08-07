@@ -1,0 +1,30 @@
+[package]
+name = "remtene-platform"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+remtene-application.workspace = true
+remtene-domain.workspace = true
+futures.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+uuid.workspace = true
+
+[target.'cfg(target_os = "macos")'.dependencies]
+block2.workspace = true
+core-foundation.workspace = true
+coreaudio-sys.workspace = true
+libc.workspace = true
+objc2.workspace = true
+objc2-app-kit.workspace = true
+objc2-av-foundation.workspace = true
+objc2-foundation.workspace = true
+rustix.workspace = true
+
+[lints]
+workspace = true

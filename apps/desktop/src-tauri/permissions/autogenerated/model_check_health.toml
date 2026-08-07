@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-model-check-health"
+description = "Enables the model_check_health command without any pre-configured scope."
+commands.allow = ["model_check_health"]
+
+[[permission]]
+identifier = "deny-model-check-health"
+description = "Denies the model_check_health command without any pre-configured scope."
+commands.deny = ["model_check_health"]

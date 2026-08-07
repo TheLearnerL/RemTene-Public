@@ -1,0 +1,13 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "recording-hud",
+  "description": "Recording HUD may only read its sanitized state, listen for targeted events, and submit finish or cancel intents",
+  "windows": ["recording-hud"],
+  "permissions": [
+    "allow-recording-hud-get-state",
+    "allow-recording-finish",
+    "allow-recording-cancel",
+    "core:event:allow-listen",
+    "core:event:allow-unlisten"
+  ]
+}

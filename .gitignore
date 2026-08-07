@@ -1,0 +1,61 @@
+# OS and editor state
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+.envrc
+.direnv/
+*.key
+*.pem
+*.p12
+*.pfx
+*.mobileprovision
+
+# Private development material: never publish
+/.claude/
+/.planning/
+/docs/
+/pocs/
+/content/
+/image/
+/output/
+/AGENTS.md
+/CLAUDE.md
+
+# Package and build outputs
+node_modules/
+target/
+dist/
+coverage/
+*.log
+*.tmp
+
+# Local model and Worker artifacts. Public keeps only legal metadata.
+models/*
+!models/README.md
+!models/LICENSES/
+!models/LICENSES/**
+*.gguf
+*.onnx
+*.safetensors
+apps/desktop/src-tauri/binaries/*
+
+# Installers, archives and signing output
+*.app
+*.dmg
+*.pkg
+*.msi
+*.exe
+*.zip
+*.7z
+*.tar
+*.tar.gz
+

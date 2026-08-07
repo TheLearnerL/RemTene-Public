@@ -1,0 +1,12 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "session-feedback",
+  "description": "Session feedback may only read its current content-free notification, listen for replacement events, and invoke the notification's single approved recovery action",
+  "windows": ["session-feedback"],
+  "permissions": [
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    "allow-notification-get-pending",
+    "allow-notification-apply-action"
+  ]
+}

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-notification-get-pending"
+description = "Enables the notification_get_pending command without any pre-configured scope."
+commands.allow = ["notification_get_pending"]
+
+[[permission]]
+identifier = "deny-notification-get-pending"
+description = "Denies the notification_get_pending command without any pre-configured scope."
+commands.deny = ["notification_get_pending"]

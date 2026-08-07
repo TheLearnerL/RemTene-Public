@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-settings-set-clipboard-bridge"
+description = "Enables the settings_set_clipboard_bridge command without any pre-configured scope."
+commands.allow = ["settings_set_clipboard_bridge"]
+
+[[permission]]
+identifier = "deny-settings-set-clipboard-bridge"
+description = "Denies the settings_set_clipboard_bridge command without any pre-configured scope."
+commands.deny = ["settings_set_clipboard_bridge"]

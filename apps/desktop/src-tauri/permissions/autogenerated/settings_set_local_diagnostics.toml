@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-settings-set-local-diagnostics"
+description = "Enables the settings_set_local_diagnostics command without any pre-configured scope."
+commands.allow = ["settings_set_local_diagnostics"]
+
+[[permission]]
+identifier = "deny-settings-set-local-diagnostics"
+description = "Denies the settings_set_local_diagnostics command without any pre-configured scope."
+commands.deny = ["settings_set_local_diagnostics"]

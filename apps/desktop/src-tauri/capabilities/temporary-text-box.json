@@ -1,0 +1,13 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "temporary-text-box",
+  "description": "Temporary text box may only listen for its one-time sanitized delivery event",
+  "windows": ["temporary-text-box"],
+  "permissions": [
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    "allow-temporary-text-get-pending",
+    "allow-temporary-text-dismiss",
+    "allow-temporary-text-copy-all"
+  ]
+}

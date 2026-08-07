@@ -1,0 +1,514 @@
+#page-system {
+  scrollbar-gutter: auto;
+}
+
+#page-system > .app-page {
+  padding-bottom: 36px;
+}
+
+.system-spec-page,
+.system-spec-loading {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-rows: 100px 84px 352px 36px;
+  gap: 16px;
+}
+
+.system-spec-header {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.system-spec-header > div {
+  min-width: 0;
+}
+
+.system-spec-breadcrumb,
+.system-spec-description,
+.system-spec-status h2,
+.system-spec-status p,
+.system-spec-card h2,
+.system-spec-card header p {
+  margin: 0;
+}
+
+.system-spec-breadcrumb {
+  color: var(--remtene-foreground-muted);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.system-spec-header h1 {
+  margin: 2px 0 0;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 34px;
+}
+
+.system-spec-description {
+  overflow: hidden;
+  color: var(--remtene-foreground-muted);
+  font-size: 13px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.system-spec-header > button {
+  margin-top: 24px;
+}
+
+.system-header-action {
+  width: 128px;
+}
+
+.system-header-action--wide {
+  width: 144px;
+}
+
+.system-spec-status {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: 12px 24px 10px 48px;
+  border: 1px solid var(--remtene-border);
+  border-radius: 18px;
+  background: var(--remtene-surface);
+}
+
+.system-spec-status-tone {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--remtene-success);
+}
+
+.system-spec-status-dot {
+  position: absolute;
+  top: 21px;
+  left: 23px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--remtene-success);
+}
+
+.system-spec-status[data-tone="warning"] .system-spec-status-tone,
+.system-spec-status[data-tone="warning"] .system-spec-status-dot {
+  background: var(--remtene-warning);
+}
+
+.system-spec-status[data-tone="error"] .system-spec-status-tone,
+.system-spec-status[data-tone="error"] .system-spec-status-dot {
+  background: var(--remtene-destructive);
+}
+
+.system-spec-status h2 {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.system-spec-status p {
+  margin-top: 6px;
+  overflow: hidden;
+  color: var(--remtene-foreground-muted);
+  font-size: 12px;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.system-spec-columns,
+.system-loading-columns {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 384px 256px;
+  gap: 20px;
+}
+
+.system-spec-card {
+  position: relative;
+  min-width: 0;
+  height: 352px;
+  overflow: hidden;
+  border: 1px solid var(--remtene-border);
+  border-radius: 18px;
+  background: var(--remtene-surface);
+}
+
+.system-spec-card > header {
+  height: 67px;
+  padding: 11px 19px 0;
+}
+
+.system-spec-card h2 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.system-spec-card header p {
+  margin-top: 4px;
+  overflow: hidden;
+  color: var(--remtene-foreground-muted);
+  font-size: 11px;
+  line-height: 17px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.system-spec-list {
+  position: relative;
+  width: 100%;
+  height: 284px;
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  background: var(--remtene-surface);
+  scrollbar-width: none;
+}
+
+.system-spec-list::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.system-spec-scroll-track {
+  position: absolute;
+  z-index: 2;
+  top: 75px;
+  right: 6px;
+  width: 4px;
+  height: 268px;
+  border-radius: 999px;
+  background: var(--remtene-surface-soft);
+  pointer-events: none;
+}
+
+.system-spec-scroll-thumb {
+  display: block;
+  width: 4px;
+  height: 176px;
+  border-radius: 999px;
+  background: var(--remtene-foreground-muted);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.system-spec-row {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  min-height: 64px;
+  grid-template-columns: 8px minmax(0, 1fr) minmax(0, 88px);
+  align-items: start;
+  gap: 12px;
+  padding: 8px 36px 9px 12px;
+}
+
+.system-spec-row[data-control="switch"] {
+  grid-template-columns: 8px minmax(0, 1fr) 44px;
+}
+
+.system-spec-row[data-control="button"] {
+  grid-template-columns: 8px minmax(0, 1fr) 112px;
+}
+
+.system-spec-row::after {
+  position: absolute;
+  right: 36px;
+  bottom: 0;
+  left: 20px;
+  height: 1px;
+  background: var(--remtene-border);
+  content: "";
+}
+
+.system-spec-row:last-child::after {
+  display: none;
+}
+
+.system-spec-row-dot {
+  position: static;
+  margin-top: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--remtene-border);
+}
+
+.system-spec-row-dot[data-tone="success"] {
+  background: var(--remtene-success);
+}
+
+.system-spec-row-dot[data-tone="warning"] {
+  background: var(--remtene-warning);
+}
+
+.system-spec-row-dot[data-tone="error"] {
+  background: var(--remtene-destructive);
+}
+
+.system-spec-row-copy {
+  position: static;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.system-spec-row-copy strong {
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.system-spec-row-copy > span {
+  display: -webkit-box;
+  margin-top: 2px;
+  overflow: hidden;
+  color: var(--remtene-foreground-muted);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.system-spec-row-control {
+  position: static;
+  display: flex;
+  width: 88px;
+  min-height: 40px;
+  align-self: center;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: var(--remtene-foreground-muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.system-spec-row[data-control="switch"] .system-spec-row-control {
+  width: 44px;
+  overflow: visible;
+}
+
+.system-spec-row[data-control="button"] .system-spec-row-control {
+  width: 112px;
+}
+
+.system-spec-switch {
+  border-color: #c7c0b9;
+  background: #c7c0b9;
+}
+
+.system-spec-switch[aria-checked="true"] {
+  border-color: var(--remtene-success);
+  background: var(--remtene-success);
+}
+
+.system-spec-page[data-preview="true"]
+  .system-spec-switch:disabled {
+  opacity: 1;
+}
+
+.system-row-action {
+  width: 112px;
+  padding-inline: 12px;
+}
+
+.system-spec-about {
+  min-width: 0;
+  padding-top: 7px;
+  overflow: hidden;
+  border-top: 1px solid var(--remtene-border);
+  color: var(--remtene-foreground-muted);
+  font-size: 11px;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.system-spec-loading > div,
+.system-loading-columns > div {
+  overflow: hidden;
+  border: 1px solid var(--remtene-border);
+  background:
+    linear-gradient(
+      100deg,
+      transparent 32%,
+      color-mix(in srgb, var(--remtene-surface-soft) 72%, transparent) 50%,
+      transparent 68%
+    ),
+    var(--remtene-surface);
+  background-size: 220% 100%;
+  animation: status-loading-shimmer 1.4s linear infinite;
+}
+
+.system-loading-header {
+  border-color: transparent !important;
+  border-radius: 12px;
+  background-color: transparent !important;
+}
+
+.system-loading-status,
+.system-loading-columns > div {
+  border-radius: 18px;
+}
+
+.system-loading-about {
+  border-width: 1px 0 0 !important;
+  background: transparent !important;
+  animation: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .system-spec-switch {
+    border-color: var(--remtene-foreground-muted);
+    background: var(--remtene-foreground-muted);
+  }
+}
+
+:root[data-theme="dark"] .system-spec-switch {
+  border-color: var(--remtene-foreground-muted);
+  background: var(--remtene-foreground-muted);
+}
+
+:root[data-theme="dark"]
+  .system-spec-switch[aria-checked="true"] {
+  border-color: var(--remtene-success);
+  background: var(--remtene-success);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"])
+    .system-spec-switch[aria-checked="true"] {
+    border-color: var(--remtene-success);
+    background: var(--remtene-success);
+  }
+}
+
+@media (max-width: 959px) {
+  #page-system > .app-page {
+    padding-bottom: 48px;
+  }
+
+  .system-spec-page,
+  .system-spec-loading {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .system-spec-header,
+  .system-loading-header {
+    min-height: 100px;
+  }
+
+  .system-spec-status,
+  .system-loading-status {
+    min-height: 84px;
+  }
+
+  .system-spec-columns,
+  .system-loading-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .system-spec-card,
+  .system-loading-columns > div {
+    width: 100%;
+    min-height: 352px;
+  }
+
+  .system-spec-card--compact
+    .system-spec-row[data-control="value"]
+    .system-spec-row-copy {
+    right: 156px;
+  }
+
+  .system-spec-about,
+  .system-loading-about {
+    min-height: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .system-spec-header {
+    min-height: 154px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .system-spec-header > button {
+    margin-top: 0;
+  }
+
+  .system-spec-description,
+  .system-spec-status p {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .system-spec-status {
+    min-height: 102px;
+  }
+
+  .system-loading-header {
+    min-height: 154px;
+  }
+}
+
+@media (max-width: 479px) {
+  .system-header-action,
+  .system-header-action--wide {
+    width: 100%;
+  }
+
+  .system-spec-row-copy {
+    right: 132px;
+  }
+
+  .system-spec-row[data-control="button"] .system-spec-row-copy {
+    right: 156px;
+  }
+
+  .system-spec-row-control {
+    right: 24px;
+  }
+
+  .system-spec-row::after {
+    right: 24px;
+  }
+
+  .system-spec-about {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .system-spec-loading > div,
+  .system-loading-columns > div {
+    animation: none;
+  }
+}

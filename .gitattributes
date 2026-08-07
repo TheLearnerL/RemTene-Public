@@ -1,0 +1,63 @@
+# Normalize text in the repository while preserving platform-specific scripts.
+* text=auto
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+*.c text eol=lf
+*.cpp text eol=lf
+*.css text eol=lf
+*.h text eol=lf
+*.html text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.lock text eol=lf
+*.md text eol=lf
+*.plist text eol=lf
+*.py text eol=lf
+*.rs text eol=lf
+*.sh text eol=lf
+*.toml text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.xml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Binary assets must never be line-ending normalized or text-merged.
+*.bin binary
+*.dmg binary
+*.gguf binary
+*.gif binary
+*.icns binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.mp3 binary
+*.mp4 binary
+*.onnx binary
+*.pdf binary
+*.png binary
+*.safetensors binary
+*.wav binary
+*.zip binary
+
+# Defense in depth for public source archives. The release allowlist remains
+# authoritative; these attributes prevent common private paths from entering a
+# Git archive if a future command selects a broader tree by mistake.
+/.claude export-ignore
+/.claude/** export-ignore
+/.planning export-ignore
+/.planning/** export-ignore
+/docs export-ignore
+/docs/** export-ignore
+/pocs export-ignore
+/pocs/** export-ignore
+/release export-ignore
+/release/** export-ignore
+/AGENTS.md export-ignore
+/CLAUDE.md export-ignore
+/apps/desktop/.vscode export-ignore
+/apps/desktop/.vscode/** export-ignore
+/scripts/compute-model-hash.py export-ignore

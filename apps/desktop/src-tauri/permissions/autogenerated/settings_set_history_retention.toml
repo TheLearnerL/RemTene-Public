@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-settings-set-history-retention"
+description = "Enables the settings_set_history_retention command without any pre-configured scope."
+commands.allow = ["settings_set_history_retention"]
+
+[[permission]]
+identifier = "deny-settings-set-history-retention"
+description = "Denies the settings_set_history_retention command without any pre-configured scope."
+commands.deny = ["settings_set_history_retention"]

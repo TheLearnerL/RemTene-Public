@@ -1,0 +1,87 @@
+# RemTene Third-Party Notices
+
+更新日期：2026-08-03
+
+## 适用范围
+
+本文件适用于 RemTene 的公开源码树，记录工作区直接依赖和仓库实际附带的第三方许可材料。公开源码树不包含 `node_modules/`、Cargo 下载缓存、模型权重、本地 ASR Runtime、Sidecar、安装包或系统框架副本。
+
+`Cargo.lock` 与 `pnpm-lock.yaml` 是版本解析的权威来源。构建产物可能包含更多传递依赖；发布二进制、安装包、模型包或 Runtime 前，发行者仍须针对实际产物生成完整依赖清单、许可证文本、NOTICE／署名和 SBOM（软件物料清单）。本文件不替代各上游许可证，也不构成法律意见。
+
+## Rust 直接依赖
+
+下表版本为 2026-08-03 锁文件解析结果；可选依赖按 Manifest 中声明的固定版本列出。
+
+| 组件 | 版本 | 上游许可证表达式 |
+|---|---:|---|
+| aes-gcm | 0.11.0 | Apache-2.0 OR MIT |
+| block2 | 0.6.2 | MIT |
+| core-foundation | 0.10.1 | MIT OR Apache-2.0 |
+| coreaudio-sys | 0.2.18 | MIT |
+| futures | 0.3.31 | MIT OR Apache-2.0 |
+| getrandom | 0.4.3 | MIT OR Apache-2.0 |
+| hound | 3.5.1 | Apache-2.0 |
+| libc | 0.2.186 | MIT OR Apache-2.0 |
+| objc2 | 0.6.4 | MIT |
+| objc2-app-kit | 0.3.2 | Zlib OR Apache-2.0 OR MIT |
+| objc2-av-foundation | 0.3.2 | Zlib OR Apache-2.0 OR MIT |
+| objc2-foundation | 0.3.2 | MIT |
+| plist | 1.10.0 | MIT |
+| qwen-asr | 0.9.0 | MIT |
+| reqwest | 0.13.4 | MIT OR Apache-2.0 |
+| rusqlite | 0.40.1 | MIT |
+| rustix | 1.0.7 | Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT |
+| serde | 1.0.229 | MIT OR Apache-2.0 |
+| serde_json | 1.0.151 | MIT OR Apache-2.0 |
+| sha2 | 0.10.9 | MIT OR Apache-2.0 |
+| tauri | 2.11.5 | Apache-2.0 OR MIT |
+| tauri-build | 2.6.3 | Apache-2.0 OR MIT |
+| tauri-plugin-autostart | 2.5.1 | Apache-2.0 OR MIT |
+| tauri-plugin-global-shortcut | 2.3.2 | Apache-2.0 OR MIT |
+| tauri-plugin-single-instance | 2.4.3 | Apache-2.0 OR MIT |
+| thiserror | 2.0.19 | MIT OR Apache-2.0 |
+| time | 0.3.54 | MIT OR Apache-2.0 |
+| tokio（开发依赖） | 1.53.0 | MIT |
+| uuid | 1.24.0 | Apache-2.0 OR MIT |
+| whisper-rs（可选） | 0.14.3 | Unlicense |
+| zeroize | 1.9.0 | Apache-2.0 OR MIT |
+
+### tauri-nspanel
+
+`tauri-nspanel` 2.1.0 来自 <https://github.com/ahkohd/tauri-nspanel>，固定提交为 `a3122e894383aa068ec5365a42994e3ac94ba1b6`。该提交的 Cargo 元数据没有填写 `license` 字段，但上游源码同时附带 `LICENSE_MIT` 和 `LICENSE_APACHE-2.0`；使用者应直接核对这两个上游许可文件。
+
+## JavaScript／TypeScript 直接依赖
+
+| 组件 | 版本 | 上游许可证表达式 |
+|---|---:|---|
+| @tauri-apps/api | 2.11.1 | Apache-2.0 OR MIT |
+| react | 19.2.7 | MIT |
+| react-dom | 19.2.7 | MIT |
+| @eslint/js（开发依赖） | 10.0.1 | MIT |
+| @tailwindcss/vite（开发依赖） | 4.3.3 | MIT |
+| @tauri-apps/cli（开发依赖） | 2.11.4 | Apache-2.0 OR MIT |
+| @types/node（开发依赖） | 26.1.1 | MIT |
+| @types/react（开发依赖） | 19.2.17 | MIT |
+| @types/react-dom（开发依赖） | 19.2.3 | MIT |
+| @vitejs/plugin-react（开发依赖） | 6.0.3 | MIT |
+| eslint（开发依赖） | 10.7.0 | MIT |
+| eslint-plugin-react-hooks（开发依赖） | 7.1.1 | MIT |
+| eslint-plugin-react-refresh（开发依赖） | 0.5.3 | MIT |
+| tailwindcss（开发依赖） | 4.3.3 | MIT |
+| typescript（开发依赖） | 5.8.3 | Apache-2.0 |
+| typescript-eslint（开发依赖） | 8.64.0 | MIT |
+| vite（开发依赖） | 8.1.5 | MIT |
+
+锁定的前端传递依赖还包含 MIT、Apache-2.0、ISC、BSD-2-Clause、BSD-3-Clause、Zlib、BlueOak-1.0.0、MPL-2.0 和 CC-BY-4.0 等许可证。例如 `lightningcss` 使用 MPL-2.0，`caniuse-lite` 数据使用 CC-BY-4.0。二进制发行时必须以实际打包依赖重新生成完整通知，不能只依赖上表。
+
+## 模型与本地 ASR Runtime
+
+本仓库只附带下列许可证文本和来源说明，不附带模型权重：
+
+| 组件 | 固定来源 | 许可证 | 仓库内许可文本 |
+|---|---|---|---|
+| Qwen3-ASR-0.6B | `Qwen/Qwen3-ASR-0.6B` revision `5eb144179a02acc5e5ba31e748d22b0cf3e303b0` | Apache-2.0 | `models/LICENSES/Qwen3-ASR-0.6B-APACHE-2.0.txt` |
+| OpenAI Whisper | `openai/whisper-large-v3-turbo` | MIT | `models/LICENSES/OpenAI-Whisper-MIT.txt` |
+| whisper.cpp 与预转换 GGML 资产 | revision `5359861c739e955e79d9a303bcbc70fb988958b1` | MIT | `models/LICENSES/whisper.cpp-MIT.txt` |
+
+具体文件选择、转换／量化边界、大小和 SHA-256 见 `models/README.md`。项目自身许可证不覆盖这些第三方组件；取得 RemTene 商业许可证也不会自动取得第三方模型、Runtime 或素材的商业权利。

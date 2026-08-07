@@ -1,0 +1,343 @@
+/* UI-045: five-domain shared layout baseline.
+ *
+ * Page-specific files continue to own state layouts and component behavior.
+ * This final layer owns only the repeated visual contract: header rhythm,
+ * card outline, row typography, trailing rail and page-bottom breathing room.
+ */
+
+#page-status > .app-page,
+#page-recording > .app-page,
+#page-model > .app-page,
+#page-output > .app-page,
+#page-system > .app-page {
+  padding-bottom: 48px;
+}
+
+:is(
+  .status-spec-page,
+  .recording-spec-page,
+  .model-page,
+  .output-page,
+  .system-spec-page
+) {
+  gap: 16px;
+}
+
+:is(
+  .status-spec-header,
+  .recording-spec-header,
+  .model-header,
+  .output-header,
+  .system-spec-header
+) {
+  min-height: 100px;
+}
+
+:is(
+  .status-spec-header,
+  .recording-spec-header,
+  .model-header,
+  .output-header,
+  .system-spec-header
+) > div {
+  min-width: 0;
+  padding-top: 2px;
+}
+
+:is(
+  .status-spec-breadcrumb,
+  .recording-spec-breadcrumb,
+  .model-breadcrumb,
+  .output-breadcrumb,
+  .system-spec-breadcrumb
+) {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.08em;
+}
+
+:is(
+  .status-spec-header,
+  .recording-spec-header,
+  .model-header,
+  .output-header,
+  .system-spec-header
+) h1 {
+  margin: 6px 0 0;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 34px;
+}
+
+:is(
+  .status-spec-description,
+  .recording-spec-description,
+  .model-description,
+  .output-description,
+  .system-spec-description
+) {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+:is(
+  .status-processing-card,
+  .status-spec-card,
+  .recording-status,
+  .recording-card,
+  .model-banner,
+  .model-card,
+  .model-service-card,
+  .output-status,
+  .output-card,
+  .system-spec-status,
+  .system-spec-card
+) {
+  border: 1px solid var(--remtene-border);
+  border-radius: 18px;
+}
+
+/* Shared status-banner geometry for Recording, Model, Output and System. */
+:is(
+  .recording-status,
+  .model-banner,
+  .output-status,
+  .system-spec-status
+) {
+  position: relative;
+  min-height: 84px;
+  padding: 12px 24px 10px 47px;
+  overflow: hidden;
+  background: var(--remtene-surface);
+}
+
+:is(
+  .recording-status-dot,
+  .model-banner-dot,
+  .output-status-dot,
+  .system-spec-status-dot
+) {
+  position: absolute;
+  top: 19px;
+  left: 23px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+:is(
+  .recording-status-tone,
+  .output-status-tone,
+  .system-spec-status-tone
+) {
+  width: 4px;
+}
+
+:is(
+  .recording-status h2,
+  .model-banner-copy strong,
+  .output-status h2,
+  .system-spec-status h2
+) {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+:is(
+  .recording-status p,
+  .model-banner-copy span,
+  .output-status p,
+  .system-spec-status p
+) {
+  margin: 6px 0 0;
+  color: var(--remtene-foreground-muted);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.model-banner-copy {
+  gap: 0;
+}
+
+:is(
+  .recording-card,
+  .model-card,
+  .model-service-card,
+  .output-card,
+  .system-spec-card
+) > header {
+  min-height: 68px;
+  padding: 14px 20px 12px;
+}
+
+:is(
+  .recording-card,
+  .model-card,
+  .model-service-card,
+  .output-card,
+  .system-spec-card
+) > header h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+:is(
+  .recording-card,
+  .model-card,
+  .model-service-card,
+  .output-card,
+  .system-spec-card
+) > header p {
+  margin: 4px 0 0;
+  font-size: 11px;
+  line-height: 17px;
+}
+
+:is(
+  .status-spec-copy strong,
+  .recording-row-copy strong,
+  .model-row strong,
+  .output-row-copy strong,
+  .system-spec-row-copy strong
+) {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+:is(
+  .status-spec-copy span,
+  .recording-row-copy > span,
+  .model-row > div > span,
+  .output-row-copy > span,
+  .system-spec-row-copy > span
+) {
+  font-size: 11px;
+  line-height: 17px;
+}
+
+.status-spec-row {
+  grid-template-columns: 8px minmax(0, 1fr) 112px;
+}
+
+.status-spec-trailing,
+.recording-row-trailing,
+.model-row-trailing,
+.output-row-trailing,
+.output-row-control,
+.output-row-action,
+.system-spec-row-control {
+  width: 112px;
+  max-width: 112px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: right;
+}
+
+.model-row-trailing {
+  flex: 0 0 112px;
+}
+
+.output-row-control,
+.output-row-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.recording-row,
+.system-spec-row,
+.system-spec-row[data-control="switch"],
+.system-spec-row[data-control="button"] {
+  grid-template-columns: 8px minmax(0, 1fr) 112px;
+}
+
+.system-spec-row[data-control="switch"] .system-spec-row-control,
+.system-spec-row[data-control="button"] .system-spec-row-control {
+  width: 112px;
+  max-width: 112px;
+  justify-content: flex-end;
+}
+
+.system-row-action[aria-label="打开日志文件夹"] {
+  color: var(--remtene-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .status-spec-row,
+  .recording-row,
+  .system-spec-row,
+  .system-spec-row[data-control="switch"],
+  .system-spec-row[data-control="button"] {
+    grid-template-columns: 8px minmax(0, 1fr) minmax(88px, 112px);
+  }
+}
+
+/* Compact right-hand cards share one trailing rail without crowding copy. */
+:is(
+  .status-spec-columns > :nth-child(2),
+  .recording-columns > :nth-child(2),
+  .model-asr-columns > :nth-child(2),
+  .output-columns > :nth-child(2),
+  .system-spec-card--compact
+) {
+  --compact-row-rail: 72px;
+  --compact-switch-rail: 44px;
+}
+
+.status-spec-columns > :nth-child(2) .status-spec-row,
+.recording-columns
+  > :nth-child(2)
+  .recording-row[data-has-trailing="true"],
+.output-columns
+  > :nth-child(2)
+  .output-row:not([data-end-kind="action"]),
+.system-spec-card--compact .system-spec-row[data-control="value"] {
+  grid-template-columns: 8px minmax(0, 1fr) var(--compact-row-rail);
+}
+
+:is(
+  .status-spec-columns > :nth-child(2) .status-spec-trailing,
+  .recording-columns > :nth-child(2) .recording-row-trailing,
+  .model-asr-columns > :nth-child(2) .model-row-trailing,
+  .output-columns > :nth-child(2) .output-row-trailing,
+  .output-columns > :nth-child(2) .output-row-control,
+  .system-spec-card--compact
+    .system-spec-row[data-control="value"]
+    .system-spec-row-control
+) {
+  width: var(--compact-row-rail);
+  max-width: var(--compact-row-rail);
+}
+
+.model-asr-columns > :nth-child(2) .model-row-trailing {
+  flex: 0 0 var(--compact-row-rail);
+}
+
+.output-row[data-end-kind="action"] {
+  grid-template-columns: 8px minmax(0, 1fr) 128px;
+}
+
+.output-row[data-end-kind="action"] .output-row-action {
+  width: 128px;
+  max-width: 128px;
+}
+
+.system-spec-card--compact .system-spec-row[data-control="switch"] {
+  grid-template-columns: 8px minmax(0, 1fr) var(--compact-switch-rail);
+}
+
+.system-spec-card--compact
+  .system-spec-row[data-control="switch"]
+  .system-spec-row-control {
+  width: var(--compact-switch-rail);
+  max-width: var(--compact-switch-rail);
+}
