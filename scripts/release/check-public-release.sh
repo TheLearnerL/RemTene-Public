@@ -84,6 +84,7 @@ COMMERCIAL_LICENSE.md
 CONTRIBUTING.md
 LICENSE
 README.md
+README_EN.md
 SECURITY.md
 THIRD_PARTY_NOTICES
 apps/desktop/package.json
@@ -106,7 +107,7 @@ EOF
 while IFS= read -r top_path; do
   top_name=${top_path##*/}
   case "$top_name" in
-    .git|.gitattributes|.github|.gitignore|.npmrc|Cargo.lock|Cargo.toml|COMMERCIAL_LICENSE.md|CONTRIBUTING.md|LICENSE|README.md|SECURITY.md|THIRD_PARTY_NOTICES|apps|assets|crates|models|package.json|pnpm-lock.yaml|pnpm-workspace.yaml|rust-toolchain.toml|rustfmt.toml|scripts)
+    .git|.gitattributes|.github|.gitignore|.npmrc|Cargo.lock|Cargo.toml|COMMERCIAL_LICENSE.md|CONTRIBUTING.md|LICENSE|README.md|README_EN.md|SECURITY.md|THIRD_PARTY_NOTICES|apps|assets|crates|models|package.json|pnpm-lock.yaml|pnpm-workspace.yaml|rust-toolchain.toml|rustfmt.toml|scripts)
       ;;
     *)
       fail "top-level path is not permitted: $top_name"
