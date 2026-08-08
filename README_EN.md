@@ -1,27 +1,34 @@
 # 辑语 RemTene
 
-> Speed up typing with your voice; turn speech into clean, ready-to-use text without changing the original meaning.
+![RemTene interface](assets/jiemian.png)
 
-辑语 is a source-available, cross-application, system-wide voice input tool. Audio is transcribed locally with ASR (automatic speech recognition). Users can choose raw transcription, or send the text to a self-configured OpenAI-compatible service for faithful cleanup and structural refinement, before delivering the result back to the original desktop input position.
+> Accelerate typing with your voice; without changing your original meaning in any way, turn flawed spoken expression into clean text with clear logic and readable formatting.
 
-> Unlike closed-source software with word-count limits and in-app purchases, this software lets you choose your own speech recognition model and freely use third-party services with your own API key. You retain full control over where your data goes.
+```math
+Rem tene, verba sequentur.
+Grasp the meaning, and the words will follow.
+```
 
-This project is licensed under the [PolyForm Noncommercial License 1.0.0](./LICENSE), which is not an OSI-approved open-source license. Noncommercial use must comply with the official license terms. Commercial use requires separate written authorization; see [Commercial Licensing](./COMMERCIAL_LICENSE.md).
+---
 
-## Product Capabilities and Boundaries
+RemTene (辑语) is a source-available, cross-application, system-wide voice input tool. Audio is processed locally using ASR (automatic speech recognition). Users can choose to send the resulting text to a self-configured OpenAI-compatible service for faithful cleanup and structural refinement, after which the cleaned text is delivered back to the original input position. <u>The entire process takes no more than three seconds.</u>
 
-- **Raw transcription**: Uses local ASR only. It does not read selected text or call an LLM (large language model).
-- **Faithful cleanup / structural refinement**: Processes text only when the user has configured a third-party service. The result must preserve facts, positions, conditions, causal relationships, and degrees of uncertainty.
-- **Local ASR**: Qwen and Whisper are connected through the same independent Worker. The user explicitly selects the engine, and the application will not automatically switch to the other engine when a task fails.
-- **Cross-application delivery**: On macOS, the application prioritizes revalidated, precise append-only insertion. If the user explicitly enables compatibility paste, the application may send a single paste action to the current focus at dispatch time when necessary. Automatic duplicate insertion is prohibited when the result is uncertain.
-- **Control panel**: Handles only status, settings, and model management. It is not a workspace for recordings, notes, or meeting content.
+Unlike closed-source software with word-count limits and in-app purchases, this software lets you choose your own speech recognition model and freely use third-party services with your own API key. You retain full control over where your data goes.
+
+## Product Features
+
+- **Raw transcription**: Uses only a local speech model to recognize your speech, transcribes your words exactly as spoken, and inserts the text at the cursor you specify.
+- **Faithful cleanup**: After you configure a third-party service, RemTene sends the locally transcribed text to the model provider you selected. The LLM and RemTene jointly ensure that the cleaned text remains 100% faithful to your original meaning while correcting all human expression issues and speech imperfections. This ensures that facts, positions, conditions, causal relationships, and logical relationships are expressed correctly.
+- **Selected text**: You can select any selectable passage and send it to the LLM as context. You can then issue commands such as translating, querying, or drafting a reply. The LLM processes the selected text according to your instruction.
+- **Local ASR**: Qwen and Whisper both process audio locally. This means that your original audio never leaves your computer and is automatically deleted after every processing session, leaving no recording traces.
+- **Control panel**: In the control panel, you can configure the recording shortcut, enable launch at startup, and review your previous output history.
 
 ## Data and Privacy
 
 - Audio does not leave the local device and is not sent to an LLM, history, or diagnostics.
 - The microphone is active only while the user is explicitly recording.
 - Raw transcription is entirely local. AI modes send only the text required to complete the task, plus any selected text the user has authorized, to the service configured by the user.
-- API keys are currently encrypted locally on the Rust side using AES-256-GCM field-level encryption. The primary key and SQLite ciphertext are stored separately in the application's private directory. The current implementation does not use macOS Keychain or Windows Credential Manager.
+- The API key you configure is currently encrypted locally on the Rust side using AES-256-GCM field-level encryption. The primary key and SQLite ciphertext are stored separately in the application's private directory. The current implementation does not use macOS Keychain or Windows Credential Manager.
 - History stores only the final text and creation time, and future history saving can be disabled. History text is not currently encrypted at the application layer.
 - Logs, ordinary settings, snapshots, and cross-window events must not store audio, text content, selected text, API keys, or raw Provider content.
 
@@ -31,20 +38,20 @@ The macOS installer is currently undergoing compliant signing and notarization.
 
 ### Currently Supported Speech Recognition Models
 
-- Qwen ASR 0.6B
-- Whisper large-v3 Q5
+- Qwen3 ASR 0.6B
+- Whisper large-v3 turbo
 
-> Model download:
+> Model download address:
 
-```
 https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main
-```
 
 [`models/README.md`](./models/README.md) records the planned model sources, pinned revisions, hashes, and licenses. This repository retains only legal and provenance materials; download the models from Hugging Face.
 
 ## How to Use the Application
 
 After successfully installing the application, open the Models page to see the currently supported models. Click <u>**Open Folder**</u>, download the model you need from <u>[https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main](https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main)</u>, and place it in that folder. Then click **Recheck** to make the model available for use.
+
+---
 
 ## Development Environment and Setup
 
@@ -189,6 +196,8 @@ scripts/                     Public build and repository self-check scripts
 To preserve existing users' system permissions, API keys, and model directories, some Bundle IDs, App Groups, and ciphertext formats still retain the historical `bard` identifier as a compatibility ABI (legacy persistent compatibility interface). These are not current product names and must not be renamed casually.
 
 ## License, Commercial Licensing, and Third-Party Content
+
+This project is licensed under the [PolyForm Noncommercial License 1.0.0](./LICENSE), which is not an OSI-approved open-source license. Noncommercial use must comply with the official license terms. Commercial use requires separate written authorization; see [Commercial Licensing](./COMMERCIAL_LICENSE.md).
 
 - Project license: [LICENSE](./LICENSE)
 - Commercial licensing: [COMMERCIAL_LICENSE.md](./COMMERCIAL_LICENSE.md)
