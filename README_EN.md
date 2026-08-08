@@ -1,6 +1,6 @@
 # 辑语 RemTene
 
-![RemTene interface](assets/jiemian.png)
+![RemTene interface](assets/jiemian2.png)
 
 > Accelerate typing with your voice; without changing your original meaning in any way, turn flawed spoken expression into clean text with clear logic and readable formatting.
 
@@ -11,14 +11,15 @@ Grasp the meaning, and the words will follow.
 
 ---
 
-RemTene (辑语) is a source-available, cross-application, system-wide voice input tool. Audio is processed locally using ASR (automatic speech recognition). Users can choose to send the resulting text to a self-configured OpenAI-compatible service for faithful cleanup and structural refinement, after which the cleaned text is delivered back to the original input position. <u>The entire process takes no more than three seconds.</u>
+RemTene (辑语) is a source-available, cross-application, system-wide voice input tool. Audio is processed locally using ASR (automatic speech recognition). Users can choose to send the resulting text to a self-configured OpenAI-compatible service for faithful cleanup and structural refinement, after which the cleaned text is delivered back to the original input position. Actual end-to-end latency depends on local ASR, the gateway of your configured model service, and the model's output speed.
 
 Unlike closed-source software with word-count limits and in-app purchases, this software lets you choose your own speech recognition model and freely use third-party services with your own API key. You retain full control over where your data goes.
 
 ## Product Features
 
+- **Multilingual recognition**: The local model can recognize Chinese-English code-switching, 30 languages including French and German, and selected dialects.
 - **Raw transcription**: Uses only a local speech model to recognize your speech, transcribes your words exactly as spoken, and inserts the text at the cursor you specify.
-- **Faithful cleanup**: After you configure a third-party service, RemTene sends the locally transcribed text to the model provider you selected. The LLM and RemTene jointly ensure that the cleaned text remains 100% faithful to your original meaning while correcting all human expression issues and speech imperfections. This ensures that facts, positions, conditions, causal relationships, and logical relationships are expressed correctly.
+- **Faithful cleanup**: After you configure a third-party service, RemTene sends the locally transcribed text to the model provider you selected. The LLM and RemTene jointly ensure that the cleaned text remains 100% faithful to your original meaning while correcting all human expression issues and speech imperfections. This ensures that facts, positions, conditions, tone, and logical relationships are expressed correctly.
 - **Selected text**: You can select any selectable passage and send it to the LLM as context. You can then issue commands such as translating, querying, or drafting a reply. The LLM processes the selected text according to your instruction.
 - **Local ASR**: Qwen and Whisper both process audio locally. This means that your original audio never leaves your computer and is automatically deleted after every processing session, leaving no recording traces.
 - **Control panel**: In the control panel, you can configure the recording shortcut, enable launch at startup, and review your previous output history.
@@ -31,6 +32,7 @@ Unlike closed-source software with word-count limits and in-app purchases, this 
 - The API key you configure is currently encrypted locally on the Rust side using AES-256-GCM field-level encryption. The primary key and SQLite ciphertext are stored separately in the application's private directory. The current implementation does not use macOS Keychain or Windows Credential Manager.
 - History stores only the final text and creation time, and future history saving can be disabled. History text is not currently encrypted at the application layer.
 - Logs, ordinary settings, snapshots, and cross-window events must not store audio, text content, selected text, API keys, or raw Provider content.
+- Apart from access to the user-configured third-party LLM service, the current application does not initiate any network connections.
 
 ## Installation and Model Status
 
@@ -49,7 +51,41 @@ https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main
 
 ## How to Use the Application
 
-After successfully installing the application, open the Models page to see the currently supported models. Click <u>**Open Folder**</u>, download the model you need from <u>[https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main](https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main)</u>, and place it in that folder. Then click **Recheck** to make the model available for use.
+After successfully installing the application, open the Models page to see the currently supported models. Click <u>**Open Folder**</u> to open the local `active` model directory. Download the model you need from <u>[https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main](https://huggingface.co/nobodyl/RemTene-ASRModel/tree/main)</u>, place it in `active`, and then click **Recheck** to make the model available for use.
+
+Make sure the downloaded model files and JSON manifests are placed directly in the application's `active` data directory:
+
+```text
+active
+|_ qwen3-asr-0.6b-v1 (folder)
+|_ qwen3-asr-0.6b-v1.manifest.json
+|_ whisper-large-v3-turbo-q5_0-v1.manifest.json
+|_ whisper-large-v3-turbo-q5_0-v1.bin
+```
+
+A future release will add one-click model downloading and deployment. Manual installation is still required in the beta version.
+
+### LLM Model Recommendations
+
+For a third-party LLM to begin returning results quickly, the model's TTFT matters alongside network latency and the LLM provider's gateway latency.
+
+TTFT (Time to First Token) is the time from when the client sends a request until it receives the model's first output token.
+
+```text
+Send request ── 0.8 seconds ──> First token appears ── Continued output ──> Complete
+                                      ↑
+                                    TTFT
+```
+
+TTFT measures something different from tokens per second: it indicates how quickly the model begins responding, and lower is better.
+
+As of August 8, 2026, the following models are low-latency candidates worth testing. Availability depends on your chosen OpenAI-compatible provider:
+
+- Gemini 3.5 Flash-Lite
+- gpt-oss-120b
+- GPT-5.6 Luna
+
+Actual latency depends on the provider, region, gateway, load, model configuration, and output length. Use your own connection tests as the final reference.
 
 ---
 
